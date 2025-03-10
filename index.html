@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surprise!</title>
+    <title>Surprise for Bubu</title>
     <style>
         body {
             margin: 0;
@@ -16,37 +16,27 @@
             flex-direction: column;
             position: relative;
         }
-        .heart {
+        .message, .big-kiss, .love-packet, .envelope {
+            position: absolute;
+            text-align: center;
+            color: #e91e63;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .love-packet { top: 20%; }
+        .message { top: 40%; display: none; }
+        .big-kiss { bottom: 15%; opacity: 0; animation: appear 3s ease-in-out forwards; animation-delay: 5s; }
+        .envelope { bottom: 10%; opacity: 0; animation: appear 3s ease-in-out forwards; animation-delay: 8s; }
+        .envelope img { width: 60%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+
+        .heart, .kiss {
             position: absolute;
             color: #ff69b4;
             font-size: 2rem;
             animation: float 3s linear infinite;
         }
-        .kiss {
-            position: absolute;
-            color: #e91e63;
-            font-size: 2.5rem;
-            animation: float 3s linear infinite;
-        }
-        .message {
-            position: absolute;
-            top: 20%;
-            text-align: center;
-            color: #e91e63;
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-        .big-kiss {
-            position: absolute;
-            bottom: 15%;
-            text-align: center;
-            color: #e91e63;
-            font-size: 5rem;
-            font-weight: bold;
-            opacity: 0;
-            animation: appear 3s ease-in-out forwards;
-            animation-delay: 5s;
-        }
+        .kiss { color: #e91e63; font-size: 2.5rem; }
+
         @keyframes float {
             from { transform: translateY(100vh); opacity: 1; }
             to { transform: translateY(-10vh); opacity: 0; }
@@ -58,8 +48,10 @@
     </style>
 </head>
 <body>
-    <div class="message">Chirag Loves Bubu ❤️<br>Kisses and Love 💋<br>Surprise Kiss to Bubu!</div>
+    <div class="love-packet">This is a love packet for my BUBU. <br>- by Chirag</div>
+    <div class="message">Chirag Loves Bubu ❤️<br>Kisses and Love to my Lifeline 💋<br>Surprise Kisses to Bubu!</div>
     <div class="big-kiss">💋</div>
+    <div class="envelope"><img src="/mnt/data/image.png" alt="Chirag and Bubu"></div>
 
 <script>
     function createEmoji(type) {
@@ -74,8 +66,22 @@
     }
 
     function startAnimation() {
-        setInterval(() => createEmoji('heart'), 200);
-        setInterval(() => createEmoji('kiss'), 300);
+        setInterval(() => createEmoji('heart'), 100);
+        setInterval(() => createEmoji('kiss'), 100);
+
+        setTimeout(() => {
+            document.querySelector('.love-packet').style.display = 'none';
+            document.querySelector('.message').style.display = 'block';
+        }, 3000);
+
+        setTimeout(() => {
+            document.querySelector('.message').style.display = 'none';
+            document.querySelector('.big-kiss').style.opacity = '1';
+        }, 5000);
+
+        setTimeout(() => {
+            document.querySelector('.envelope').style.opacity = '1';
+        }, 8000);
     }
 
     window.onload = startAnimation;
