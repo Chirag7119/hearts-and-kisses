@@ -26,8 +26,8 @@
         .love-packet { top: 20%; }
         .message { top: 40%; display: none; }
         .big-kiss { bottom: 15%; opacity: 0; animation: appear 3s ease-in-out forwards; animation-delay: 5s; }
-        .envelope { bottom: 10%; opacity: 0; animation: appear 3s ease-in-out forwards; animation-delay: 8s; }
-        .envelope img { width: 60%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+        .envelope { bottom: 10%; opacity: 0; animation: appear 3s ease-in-out forwards; animation-delay: 7s; }
+        .envelope video { width: 60%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
 
         .heart, .kiss {
             position: absolute;
@@ -49,9 +49,14 @@
 </head>
 <body>
     <div class="love-packet">Since I'm missing you soooooooooooooooooooooo much, this is a love packet for my BUBU. <br>- by Chirag</div>
-    <div class="message">Chirag Loves Bubu ❤️<br>Kisses and Love to my Lifeline 💋<br>Surprise Kisses to Bubu!</div>
+    <div class="message">Chirag Loves Bubu ❤️<br>Kisses and Love 💋<br>Surprise Kiss to Bubu!</div>
     <div class="big-kiss">💋</div>
-    <div class="envelope"><img src="./image.png" alt="Chirag and Bubu"></div>
+    <div class="envelope">
+        <video controls>
+            <source src="bbvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 <script>
     function createEmoji(type) {
@@ -81,7 +86,7 @@
 
         setTimeout(() => {
             document.querySelector('.envelope').style.opacity = '1';
-        }, 8000);
+        }, 7000);
     }
 
     window.onload = startAnimation;
